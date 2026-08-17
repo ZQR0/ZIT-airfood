@@ -6,7 +6,7 @@ spring:
     name: backend
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/kyfo_db
+    url: jdbc:postgresql://localhost:5432/airfood_db
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -36,7 +36,7 @@ management:
 
   metrics:
     tags:
-      application: kyfo-backend
+      application: airfood-backend
 
   prometheus:
     metrics:

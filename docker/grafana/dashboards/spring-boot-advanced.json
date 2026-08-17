@@ -2078,8 +2078,8 @@
     "list": [
       {
         "current": {
-          "text": "kyfo-backend",
-          "value": "kyfo-backend"
+          "text": "airfood-backend",
+          "value": "airfood-backend"
         },
         "datasource": "prometheus",
         "definition": "",

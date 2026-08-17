@@ -208,11 +208,11 @@ curl -s -c s7.txt -X POST localhost:8080/api/v1/airlines/login \
 
 ## Связанные файлы
 
-- Конфигурация: `src/main/java/zit/kyfo/backend/security/WebSecurityConfig.java`
-- `UserDetailsService`: `src/main/java/zit/kyfo/backend/security/AirlineUserDetailsService.java`
-- `AuthenticationEntryPoint`: `src/main/java/zit/kyfo/backend/security/RestAuthenticationEntryPoint.java`
-- Контроллер входа: `src/main/java/zit/kyfo/backend/security/AuthController.java`
-- DTO: `src/main/java/zit/kyfo/backend/dto/LoginRequest.java`, `src/main/java/zit/kyfo/backend/dto/LoginResponse.java`
-- Репозиторий: `src/main/java/zit/kyfo/backend/dao/repository/AirlinesRepository.java`
-- Сущность: `src/main/java/zit/kyfo/backend/dao/entity/AirlinesEntity.java`
+- Конфигурация: `src/main/java/zit/airfood/backend/security/WebSecurityConfig.java`
+- `UserDetailsService`: `src/main/java/zit/airfood/backend/security/AirlineUserDetailsService.java`
+- `AuthenticationEntryPoint`: `src/main/java/zit/airfood/backend/security/RestAuthenticationEntryPoint.java`
+- Контроллер входа: `src/main/java/zit/airfood/backend/security/AuthController.java`
+- DTO: `src/main/java/zit/airfood/backend/dto/LoginRequest.java`, `src/main/java/zit/airfood/backend/dto/LoginResponse.java`
+- Репозиторий: `src/main/java/zit/airfood/backend/dao/repository/AirlinesRepository.java`
+- Сущность: `src/main/java/zit/airfood/backend/dao/entity/AirlinesEntity.java`
 - Сид-данные: `src/main/resources/db/changelog/realese/dml-01.sql`

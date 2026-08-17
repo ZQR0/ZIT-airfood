@@ -18,7 +18,7 @@ liquibase {
     activities {
         main {
             changelogFile 'src/main/resources/db/changelog/db.changelog-master.yaml'
-            url 'jdbc:postgresql://localhost:5432/kyfo_db'
+            url 'jdbc:postgresql://localhost:5432/airfood_db'
             username 'postgres'
             password 'postgres'
         }
@@ -26,7 +26,7 @@ liquibase {
     runList = 'main'
 }
 
-group = 'zit.kyfo'
+group = 'zit.airfood'
 version = '0.0.1'
 
 java {
