@@ -31,25 +31,25 @@ jobs:
 
       - name: Verify Postgres is reachable
         run: |
-          docker compose exec -T postgres pg_isready -U postgres -d kyfo_db
+          docker compose exec -T postgres pg_isready -U postgres -d airfood_db
 
       - name: Validate Liquibase changelog
         env:
-          LIQUIBASE_URL: jdbc:postgresql://localhost:5432/kyfo_db
+          LIQUIBASE_URL: jdbc:postgresql://localhost:5432/airfood_db
           LIQUIBASE_USERNAME: postgres
           LIQUIBASE_PASSWORD: postgres
         run: ./gradlew validate --stacktrace
 
       - name: Apply Liquibase Migrations
         env:
-          LIQUIBASE_URL: jdbc:postgresql://localhost:5432/kyfo_db
+          LIQUIBASE_URL: jdbc:postgresql://localhost:5432/airfood_db
           LIQUIBASE_USERNAME: postgres
           LIQUIBASE_PASSWORD: postgres
         run: ./gradlew update --stacktrace
 
       - name: Build and run tests
         env:
-          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/kyfo_db
+          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/airfood_db
           SPRING_DATASOURCE_USERNAME: postgres
           SPRING_DATASOURCE_PASSWORD: postgres
         run: ./gradlew build

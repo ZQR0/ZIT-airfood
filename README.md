@@ -1,4 +1,4 @@
-# kyfo — backend
+# airfood — backend
 
 [![Java](https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-6DB33F?logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
@@ -6,7 +6,7 @@
 [![Liquibase](https://img.shields.io/badge/Liquibase-migrations-2962FF)](https://www.liquibase.org/)
 [![License](https://img.shields.io/badge/license-Academic-lightgrey)](#лицензия)
 
-> **kyfo** (компенсация/уход за формой) — сервис, который помогает авиакомпаниям
+> **airfood** (компенсация/уход за формой) — сервис, который помогает авиакомпаниям
 > соблюдать **ФАП-82** при задержках рейсов: начисляет пассажиру деньги на
 > посадочный талон, и пассажир может их потратить в кафе/точках обслуживания
 > аэропорта.
@@ -37,7 +37,7 @@
 ## Что это такое
 
 Когда рейс задерживается, авиакомпания обязана компенсировать пассажиру расходы
-на еду и напитки. Вместо бумажных ваучеров и наличных kyfo даёт простой цифровой
+на еду и напитки. Вместо бумажных ваучеров и наличных airfood даёт простой цифровой
 конвейер:
 
 1. **Сотрудник авиакомпании** в личном кабинете фиксирует задержку и нажимает
@@ -104,7 +104,7 @@
            ▼
    ┌────────────────────┐
    │   PostgreSQL 18    │
-   │  (kyfo_db, тома)   │
+   │ (airfood_db, тома) │
    └─────────▲──────────┘
              │
              │  /api/v1/points/*
@@ -157,7 +157,7 @@ backend/
 │   └── FIXES.md                 # Известные критические проблемы
 └── src/
     ├── main/
-    │   ├── java/zit/kyfo/backend/
+    │   ├── java/zit/airfood/backend/
     │   │   ├── BackendApplication.java
     │   │   ├── controller/      # AirlinesController, ServicePointsController
     │   │   ├── service/         # Бизнес-логика
@@ -173,7 +173,7 @@ backend/
     │           ├── migrations/ddl-01.sql        # Схема
     │           └── release/                     # Сид-данные dml-01..07.sql
     └── test/
-        ├── java/zit/kyfo/backend/
+        ├── java/zit/airfood/backend/
         │   ├── BackendApplicationTests.java
         │   └── dao/repository/  # Интеграционные тесты на JPA
         └── resources/
@@ -200,12 +200,12 @@ docker compose up -d
 
 | Сервис      | Хост:порт            | Назначение                                |
 |-------------|----------------------|-------------------------------------------|
-| `postgres`  | `localhost:5432`     | База `kyfo_db`, user/password `postgres`  |
+| `postgres`  | `localhost:5432`     | База `airfood_db`,user/password `postgres`|
 | `prometheus`| `localhost:9090`     | Сбор метрик с backend                     |
 | `grafana`   | `localhost:3000`     | Дашборды (admin/admin)                    |
 
 > Имена контейнеров: `zit-postgres`, `zit-prometheus`, `zit-grafana`. Они
-> соединяются через bridge-сеть `kyfo-network`. Том `postgres_data`
+> соединяются через bridge-сеть `airfood-network`. Том `postgres_data`
 > персистентен между перезапусками.
 
 ### 2. Запустить backend
@@ -378,7 +378,7 @@ curl -i -X POST localhost:8080/api/v1/points/pay \
 автоматически экспортируется Micrometer'ом в формате Prometheus.
 
 Grafana при первом входе попросит сменить пароль. Datasource Prometheus
-предустановлен (`http://prometheus:9090` внутри `kyfo-network`). Импортируйте
+предустановлен (`http://prometheus:9090` внутри `airfood-network`). Импортируйте
 готовые дашборды (например, JVM (Micrometer) — id `4701`) через
 `+ → Import → 4701`.
 
@@ -409,7 +409,7 @@ java -jar build/libs/backend-0.0.1.jar
 Интеграционные тесты на JPA-репозиториях написаны на JUnit 5 + AssertJ и
 используют **Testcontainers** для поднятия PostgreSQL 18 в Docker:
 
-- `src/test/java/zit/kyfo/backend/dao/repository/AbstractRepositoryTest.java` —
+- `src/test/java/zit/airfood/backend/dao/repository/AbstractRepositoryTest.java` —
   базовый класс (`@DataJpaTest` + `PostgreSQLContainer`).
 - Тесты на каждый репозиторий: `AirlinesRepositoryTest`, `AirportsRepositoryTest`,
   `FlightRepositoryTest`, `PassengerRepositoryTest`, `TicketRepositoryTest`,
